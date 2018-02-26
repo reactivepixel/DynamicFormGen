@@ -6,6 +6,7 @@ exports.convert = async (obj) => {
 
     if (obj) { // error handling
         await obj.forEach(element => {
+            
             const type = element.type
             if (type == "label") {
                 formString += `<label for="${element.for}"></label>`;
