@@ -18,7 +18,10 @@ const array = [{
   for: 'hobbies',
   required: true,
 }, {
-  type: 'Submit',
+  type: 'submit',
   for: 'submitButtom',
   value: 'Submit Form',
 }];
+
+
+module.exports = array;
