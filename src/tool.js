@@ -26,6 +26,15 @@ exports.formGen = (formInputs) => {
           output += input.required ? 'required' : '';
           output += '/>';
           break;
+
+        case 'submit':
+          output += `<input type="${input.type}" `;
+          output += input.id ? `id="${input.id}" ` : '';
+          output += input.name ? `name="${input.name}" ` : '';
+          output += input.value ? `value="${input.value}" ` : '';
+          output += '></input>';
+          break;
+          
         default:
 
       }
