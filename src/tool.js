@@ -34,10 +34,11 @@ exports.formGen = (formInputs) => {
           output += input.value ? `value="${input.value}" ` : '';
           output += '></input>';
           break;
-          
+
         default:
 
       }
     }
-  })
+  });
+  return `FormGen: <form method="post">${output}</form>`;
 };
