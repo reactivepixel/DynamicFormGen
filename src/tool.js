@@ -37,7 +37,10 @@ exports.formGen = (formInputs) => {
 
         default:
 
+          throw new Error(`-Error- invalid type ${input.type}`);
       }
+    } else {
+      throw new Error('-Error- Missing input type Check input array please');
     }
   });
   return `FormGen: <form method="post">${output}</form>`;
