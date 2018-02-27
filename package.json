@@ -1,0 +1,19 @@
+{
+  "name": "dynamic-form-builder",
+  "version": "1.0.0",
+  "description": "A tool to dynamically generate forms ",
+  "main": "src/formGenerator.js",
+  "scripts": {
+    "test": "node src/demo.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drubiodev/dynamic-form-builder.git"
+  },
+  "author": "Daniel Rubio",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/drubiodev/dynamic-form-builder/issues"
+  },
+  "homepage": "https://github.com/drubiodev/dynamic-form-builder#readme"
+}
