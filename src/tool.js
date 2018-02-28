@@ -1,23 +1,23 @@
 // Brett Rogers (Kloe)
 
-const generator = obj => {
+const generator = (obj) => {
   let formString = '';
   let error = '';
   // Checking for the settings in the object
   //   prettier-ignore
   if (obj.settings) {
-    formString += "<form";
+    formString += '<form';
     formString += obj.settings.action ? ` action="${obj.settings.action}"` : ' action="#"';
     formString += obj.settings.method ? ` method="${obj.settings.method}"` : ' method="POST"';
-    formString += '>'
+    formString += '>';
   } else {
     formString += '<form action="#" method="POST">';
   }
   if (obj.tags) {
-    obj.tags.forEach(e => {
+    obj.tags.forEach((e) => {
       // Switch statement to find which tag is wanted
       switch (e.tag) {
-        case 'input':
+        case 'input': {
           // prettier-ignore
           const inputTypes = ['submit', 'button', 'text', 'color', 'date', 'datetime', 'email', 'month', 'number', 'range', 'search', 'tel', 'time', 'url', 'week'];
           const checkType = type => type === e.type;
@@ -32,23 +32,27 @@ const generator = obj => {
             error = `Invalid input type: ${e.type}`;
           }
           break;
-        case 'label':
+        }
+        case 'label': {
           formString += '<label ';
           formString += e.for ? ` for="${e.for}" ` : '';
           formString += e.value ? `>${e.value}</label>` : '></label>';
           break;
-        case 'select':
+        }
+        case 'select': {
           formString += '<select>';
           if (e.options) {
-            e.options.forEach(e => {
-              formString += `<option value="${e.toLowerCase()}">${e}</option>`;
+            e.options.forEach((o) => {
+              formString += `<option value="${o.toLowerCase()}">${o}</option>`;
             });
           }
           formString += '</select>';
           break;
-        default:
+        }
+        default: {
           error = 'Not a valid object';
           break;
+        }
       }
     });
     formString += '</form>';
@@ -56,6 +60,7 @@ const generator = obj => {
     error = 'Object does not exist';
   }
   // return the error if the object is not valid if not return the form
-  return error ? error : formString;
+  if (error) return error;
+  return formString;
 };
 module.exports = generator;

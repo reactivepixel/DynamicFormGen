@@ -3,7 +3,7 @@ const lint = require('mocha-eslint');
 // Array of paths to lint
 // Note: a seperate Mocha test will be run for each path and each file which
 // matches a glob pattern
-const paths = ['bot', 'test/**/*.js'];
+const paths = ['src', 'test/**/*.js'];
 
 const options = {
   // Specify style of output
@@ -28,7 +28,7 @@ const options = {
 
   // Specify the mocha context in which to run tests
   // Defaults to `eslint`, but can be any string
-  contextName: 'AirBnB Style Guide Adhearance - eslint'
+  contextName: 'AirBnB Style Guide Adhearance - eslint',
 };
 
 // Run the tests
