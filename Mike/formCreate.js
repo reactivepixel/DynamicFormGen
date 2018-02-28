@@ -11,7 +11,7 @@ exports.convert = async (obj) => {
             if (type == "label") {
                 formString += `<label for="${element.for}"></label>`;
             } else if (type == "text" || type == "color" || type == "email" || type == "tel") {
-                formString += `<input id="${element.name}" name="${element.name}" />`;
+                formString += `<input type="${element.type}" id="${element.name}" name="${element.name}" />`;
             } else if (type == "select") { //
                 formString += `<select id=${element.name} >`
                 let options = element.option
