@@ -14,14 +14,14 @@ const generator = obj => {
             switch (e.tag) {
                 case 'input':
                     // Checks if they added a name
-                    if (e.name) {
-                        formString += `<input type="${e.type}" name="${e.name}" />`;
+                    if (e.id && e.name) {
+                        formString += `<input type="${e.type}" name="${e.name}" id="${e.id}" />`;
                     // Checks if they added an id
                     } else if (e.id) {
                         formString += `<input type="${e.type}" id="${e.id}" />`;
                     // Checks if they added an id and name
-                    } else if (e.id && e.name) {
-                        formString += `<input type="${e.type}" name="${e.name}" id="${e.id}" />`;
+                    } else if (e.name) {
+                        formString += `<input type="${e.type}" name="${e.name}" />`;
                     } else {
                         formString += `<input type="${e.type}" />`
                     }
