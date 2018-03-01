@@ -3,17 +3,6 @@
  * Form Generator
  */
 
-exports.build = formObjectArray => {
-  if(validateFormObject(formObjectArray)){
-    try {
-      console.log(displayForm(formObjectArray));
-    } 
-    catch(err) {
-      console.error(err.message); 
-    }
-  }
-}
-
 function renderInputElement(e) {
   return `<label for="${e.id}">${e.labelName}</label>
     <${e.tag} type="${e.type}" id="${e.id}"/>
@@ -25,38 +14,63 @@ function renderTextAreaElement(e) {
   <${e.tag} id="${e.id}"></${e.tag}>`;
 }
 
-function renderSelectElement(e){
-  return `<label for="${e.id}">${e.labelName}</label>
-  <select id="${e.id}">
-    ${e.options.map(option => 
-    `<option value="${option.value}">${option.text}</option>`
-    ).join('\n')}
+function renderSelectElement(e) {
+  return `<label for="${e
+    .id}">${e
+    .labelName}</label>
+  <select id="${e
+    .id}">
+    ${e
+    .options
+    .map(option => `<option value="${option.value}">${option.text}</option>`)
+    .join('\n')}
 </select>
   `;
 }
-
+function filterFormElement(e) {
+  let formElement;
+  if (e.tag === 'input') {
+    formElement = renderInputElement(e);
+  } else if (e.tag === 'textarea') {
+    formElement = renderTextAreaElement(e);
+  } else if (e.tag === 'select') {
+    formElement = renderSelectElement(e);
+  }
+  return formElement;
+}
 function displayForm(form) {
-  const action = form.attributes.action,
-    method = form.attributes.method,
-    formId = form.attributes.id,
-    elements = form.elements;
-    
+  const { action } = form.attributes;
+  const { method } = form.attributes;
+  const { id } = form.attributes;
+  const { elements } = form;
+
   const formTemplate = `
-  <form action="${action}" method="${method}" id="${formId}">
-    ${elements.map(element => `${ 
-      (element.tag === 'input') ? renderInputElement(element) : 
-      (element.tag === 'textarea') ? renderTextAreaElement(element) :
-      (element.tag === 'select') ? renderSelectElement(element)
-      : `na`}`).join(' ')}
+  <form action="${action}" method="${method}" id="${id}">
+    ${elements
+    .map(element => filterFormElement(element))
+    .join(' ')}
   </form>
   `;
   return formTemplate;
 }
 
-function validateFormObject(userInput){
-  if(userInput !== null && typeof userInput === 'object'){
-    return true;
-  }else{
+function validateFormObject(userInput) {
+  let isValid;
+  if (userInput !== null && typeof userInput === 'object') {
+    isValid = true;
+  } else {
+    isValid = false;
     console.error('Error: Form Object is not in the correct format or is NULL');
   }
+  return isValid;
 }
+
+exports.build = (formObjectArray) => {
+  if (validateFormObject(formObjectArray)) {
+    try {
+      console.log(displayForm(formObjectArray));
+    } catch (err) {
+      console.error(err.message);
+    }
+  }
+};
