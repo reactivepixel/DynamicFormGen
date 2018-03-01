@@ -1,3 +1,5 @@
+const tools = require('./tools');
+
 const array = [{
   type: 'label',
   for: 'nameInput',
@@ -23,5 +25,4 @@ const array = [{
   value: 'Submit Form',
 }];
 
-
-module.exports = array;
+tools(array);

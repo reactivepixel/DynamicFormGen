@@ -1,31 +1,34 @@
-const formData = require('./index');
 
-let formString = ''; // makes a string to concat with
-if (formData) {
+const util = require('apex-util');
+
+const formGen = (data) => {
+  let formString = ''; // makes a string to concat with
+  if (data) {
   // loops through all the objects in the input array
-  formData.forEach((data) => {
+    data.forEach((singledata) => {
     // data is a single input object
 
     // check on each type of input
-    if (data.type === 'label') {
+      if (singledata.type === 'label') {
       // console.log('it is a', data.type);
       // add to the formString
-      formString += `<label for='${data.for}'/>`;
-    } else if (data.type === 'text') {
+        formString += `<label for='${singledata.for}'/>`;
+      } else if (singledata.type === 'text') {
       // console.log('it is a', data.type);
 
-      formString += `<input type='${data.type}' name='${data.for}'/>`;
+        formString += `<input type='${singledata.type}' name='${data.for}'/>`;
       // add to the formString
-    } else if (data.type === 'submit') {
+      } else if (singledata.type === 'submit') {
       // console.log('it is a', data.type);
 
-      formString += `<input type='${data.type}' name='${data.for}' value='${data.value}'/>`;
+        formString += `<input type='${singledata.type}' name='${singledata.for}' value='${singledata.value}'/>`;
       // add to the formString
-    }
-  });
-
-  // Return entire string
-  console.log('the entire string', formString);
-} else {
-  console.log('You broke me');
-}
+      }
+    });
+    // Return entire string
+    util.log('the entire string', formString);
+  } else {
+    util.log('You broke me');
+  }
+};
+module.exports = formGen;
