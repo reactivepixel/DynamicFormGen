@@ -1,0 +1,29 @@
+{
+  "name": "dynamic-form-gen",
+  "version": "1.2.0",
+  "description": "dynamic form tool",
+  "main": "src/tool.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reactivepixel/DynamicFormGen.git"
+  },
+  "author": "BHess2653",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/reactivepixel/DynamicFormGen/issues"
+  },
+  "homepage": "https://github.com/reactivepixel/DynamicFormGen#readme",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "eslint": "^4.18.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0",
+    "mocha-eslint": "^4.1.0"
+  }
+}
