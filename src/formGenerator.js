@@ -61,7 +61,7 @@ function validateFormObject(userInput) {
     isValid = true;
   } else {
     isValid = false;
-    tool.debug('Error: Form Object is not in the correct format or is NULL');
+    tool.debug('Error:', 'Form Object is not in the correct format or is NULL', 3);
   }
   return isValid;
 }
@@ -69,9 +69,9 @@ function validateFormObject(userInput) {
 exports.build = (formObjectArray) => {
   if (validateFormObject(formObjectArray)) {
     try {
-      tool.debug(displayForm(formObjectArray));
+      tool.debug('Form Output: ', displayForm(formObjectArray), 3);
     } catch (err) {
-      tool.debug(err.message);
+      tool.debug('Error:', err.message, 3);
     }
   }
 };

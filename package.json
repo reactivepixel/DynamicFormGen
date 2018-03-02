@@ -4,7 +4,7 @@
   "description": "A tool to dynamically generate forms ",
   "main": "src/formGenerator.js",
   "scripts": {
-    "test": "DEBUG_MODE=true node src/demo.js"
+    "test": "node src/demo.js"
   },
   "repository": {
     "type": "git",
