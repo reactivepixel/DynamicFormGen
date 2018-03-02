@@ -22,8 +22,13 @@ get Node [Check out the documentation!](https://www.npmjs.com/get-npm)
 Before Using Application run `npm install`
 
 #### Demo Output
-
-`npm test` 
+[LogLevel]
+ * Production 0
+ * Staging 1
+ * Dev 2
+ * Detailed 3
+ 
+DEBUG_MODE={LogLevel}  `npm test` 
 
 #### Unit Testing
 
