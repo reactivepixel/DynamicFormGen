@@ -1,10 +1,10 @@
 {
   "name": "dynamic-form-builder",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "A tool to dynamically generate forms ",
   "main": "src/formGenerator.js",
   "scripts": {
-    "test": "node src/demo.js"
+    "test": "DEBUG_MODE=true node src/demo.js"
   },
   "repository": {
     "type": "git",

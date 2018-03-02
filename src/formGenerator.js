@@ -2,6 +2,7 @@
  * Daniel Rubio
  * Form Generator
  */
+const tool = require('../tool');
 
 function renderInputElement(e) {
   return `<label for="${e.id}">${e.labelName}</label>
@@ -60,7 +61,7 @@ function validateFormObject(userInput) {
     isValid = true;
   } else {
     isValid = false;
-    console.error('Error: Form Object is not in the correct format or is NULL');
+    tool.debug('Error: Form Object is not in the correct format or is NULL');
   }
   return isValid;
 }
@@ -68,9 +69,9 @@ function validateFormObject(userInput) {
 exports.build = (formObjectArray) => {
   if (validateFormObject(formObjectArray)) {
     try {
-      console.log(displayForm(formObjectArray));
+      tool.debug(displayForm(formObjectArray));
     } catch (err) {
-      console.error(err.message);
+      tool.debug(err.message);
     }
   }
 };
