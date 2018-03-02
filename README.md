@@ -13,10 +13,19 @@ A tool to dynamically generate forms
 
 get Node [Check out the documentation!](https://www.npmjs.com/get-npm)
 
-#### 1. Clone Repo
+#### Cloneing Repo
 
 `git clone https://github.com/reactivepixel/DynamicFormGen.git && cd dynamic-form-builder`
 
-#### 2 .Run Test
+#### Starting
+
+Before Using Application run `npm install`
+
+#### Demo Output
 
 `npm test` 
+
+#### Unit Testing
+
+`mocha`
+
