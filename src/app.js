@@ -20,26 +20,6 @@ Util.log(
         tag: 'select',
         options: ['THis', 'Is', 'a', 'valuE'],
       },
-      {
-        tag: 'input',
-        type: 'email',
-        name: 'i',
-      },
-      {
-        tag: 'input',
-        type: 'text',
-        name: 'NAME',
-        id: 'ID',
-      },
-      {
-        tag: 'input',
-        type: 'text',
-        id: 'THAT ID',
-      },
-      {
-        tag: 'input',
-        type: 'submit',
-      },
     ],
     settings: {
       action: '/save-item',

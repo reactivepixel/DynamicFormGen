@@ -1,10 +1,12 @@
 {
   "name": "dynamicformgen",
   "version": "1.0.0",
-  "description": "### A quick quide to run the code 1. Clone or download the code",
+  "description":
+    "### A quick quide to run the code 1. Clone or download the code",
   "main": "app.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "start": "node src/app.js"
   },
   "repository": {
     "type": "git",

@@ -6,6 +6,8 @@ const generator = (formData) => {
   if (formData.settings) {
     const { action, method } = formData.settings;
     formString += `<form${action ? ` action="${action}"` : ' '}${method ? ` method="${method}"` : ' '}>`;
+  } else {
+    formString += '<form>';
   }
   if (formData.tags) {
     formData.tags.forEach((tagString) => {
@@ -22,16 +24,14 @@ const generator = (formData) => {
           break;
         }
         case 'label': {
-          formString += '<label ';
-          formString += tagString.for ? ` for="${tagString.for}" ` : '';
-          formString += tagString.value ? `>${tagString.value}</label>` : '></label>';
+          formString += `<label${tagString.for ? ` for="${tagString.for}"` : ' '}>${tagString.value ? tagString.value : ''}</label>`;
           break;
         }
         case 'select': {
           formString += '<select>';
           if (tagString.options) {
-            tagString.options.forEach((o) => {
-              formString += `<option value="${o.toLowerCase()}">${o}</option>`;
+            tagString.options.forEach((optionValue) => {
+              formString += `<option value="${optionValue.toLowerCase()}">${optionValue}</option>`;
             });
           }
           formString += '</select>';
