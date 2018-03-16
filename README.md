@@ -13,8 +13,7 @@ const FormGen = require('./someFolder/tool.js')
 2.  Sample object to create the form
 
 ```
-FormGen(
-  {
+const formObject = {
   tags: [
     {
         tag: 'input',
@@ -29,7 +28,9 @@ FormGen(
       action: '/save-item',
       method: 'POST',
     },
-})
+};
+
+FormGen(formObject);
 ```
 
 If a label is wanted to the inputs, `label: true` is needed along with the `labelVal` for the label's value.
