@@ -14,10 +14,11 @@ const generator = (formData) => {
       const {
         type, id, options, name, labelVal, label,
       } = tagString;
+      // Adds a label if the label is true
+      formString += label ? `<label${name ? ` for="${name}"` : ' '}>${labelVal || ''}</label>` : '';
       // Switch statement to find which tag is wanted
       switch (tagString.tag) {
         case 'input': {
-          formString += label ? `<label${name ? ` for="${name}"` : ' '}>${labelVal || ''}</label>` : '';
           const inputTypes = ['submit', 'button', 'text', 'color', 'date', 'datetime', 'email', 'month', 'number', 'range', 'search', 'tel', 'time', 'url', 'week'];
           const checkType = inputType => inputType === type;
           if (inputTypes.some(checkType)) {

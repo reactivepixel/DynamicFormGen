@@ -17,18 +17,13 @@ FormGen(
   {
   tags: [
     {
-      tag: 'label',
-      value: 'Name',
-      for: 'name',
-    },
-    {
-      tag: 'input',
-      type: 'text',
-    },
-    {
-      tag: 'select',
-      options: ['THis', 'Is', 'a', 'valuE'],
-    },
+        tag: 'input',
+        type: 'text',
+        name: 'name',
+        id: 'nameVal',
+        label: true,
+        labelVal: 'Name',
+      },
   ],
   settings: {
       action: '/save-item',
@@ -37,11 +32,16 @@ FormGen(
 })
 ```
 
+If a label is wanted to the inputs, `label: true` is needed along with the `labelVal` for the label's value.
+
 #### Acceptable tags
 
 * input
 * select
-* label
+
+#### Valid Inputs
+
+'submit', 'button', 'text', 'color', 'date', 'datetime', 'email', 'month', 'number', 'range', 'search', 'tel', 'time', 'url', 'week'
 
 ### A quick quide to run the code
 

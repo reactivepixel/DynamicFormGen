@@ -11,13 +11,15 @@ Util.log(
         tag: 'input',
         type: 'text',
         label: false,
-        // labelVal: 'Name',
+        labelVal: 'Name',
         name: 'name',
         id: 'nameVal',
       },
       {
         tag: 'select',
-        options: ['THis', 'Is', 'a', 'valuE'],
+        options: ['blue', 'yellow', 'purple'],
+        label: true,
+        labelVal: 'Select a color',
       },
     ],
     settings: {
