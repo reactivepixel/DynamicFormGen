@@ -8,13 +8,12 @@ Util.log(
   'The form: ', FormGen({
     tags: [
       {
-        tag: 'label',
-        value: 'Name',
-        for: 'name',
-      },
-      {
         tag: 'input',
         type: 'text',
+        label: false,
+        // labelVal: 'Name',
+        name: 'name',
+        id: 'nameVal',
       },
       {
         tag: 'select',

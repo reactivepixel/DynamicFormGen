@@ -11,26 +11,26 @@ const generator = (formData) => {
   }
   if (formData.tags) {
     formData.tags.forEach((tagString) => {
+      const {
+        type, id, options, name, labelVal, label,
+      } = tagString;
       // Switch statement to find which tag is wanted
       switch (tagString.tag) {
         case 'input': {
+          formString += label ? `<label${name ? ` for="${name}"` : ' '}>${labelVal || ''}</label>` : '';
           const inputTypes = ['submit', 'button', 'text', 'color', 'date', 'datetime', 'email', 'month', 'number', 'range', 'search', 'tel', 'time', 'url', 'week'];
-          const checkType = type => type === tagString.type;
+          const checkType = inputType => inputType === type;
           if (inputTypes.some(checkType)) {
-            formString += `<input type="${tagString.type}"${tagString.id ? ` id="${tagString.id}"` : ''}${tagString.name ? ` name="${tagString.name}"` : ''}/>`;
+            formString += `<input type="${type}"${id ? ` id="${id}"` : ''}${name ? ` name="${name}"` : ''}/>`;
           } else {
-            throw new Error(`Invalid input type: ${tagString.type}`);
+            throw new Error(`Invalid input type: ${type}`);
           }
-          break;
-        }
-        case 'label': {
-          formString += `<label${tagString.for ? ` for="${tagString.for}"` : ' '}>${tagString.value ? tagString.value : ''}</label>`;
           break;
         }
         case 'select': {
           formString += '<select>';
-          if (tagString.options) {
-            tagString.options.forEach((optionValue) => {
+          if (options) {
+            options.forEach((optionValue) => {
               formString += `<option value="${optionValue.toLowerCase()}">${optionValue}</option>`;
             });
           }
