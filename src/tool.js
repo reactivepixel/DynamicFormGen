@@ -15,12 +15,7 @@ const generator = (formData) => {
           const inputTypes = ['submit', 'button', 'text', 'color', 'date', 'datetime', 'email', 'month', 'number', 'range', 'search', 'tel', 'time', 'url', 'week'];
           const checkType = type => type === tagString.type;
           if (inputTypes.some(checkType)) {
-            formString += `<input type="${tagString.type}"`;
-            // Checks if they added an
-            formString += tagString.id ? ` id="${tagString.id}" ` : '';
-            // Checks if they added a name
-            formString += tagString.name ? ` name="${tagString.name}" ` : '';
-            formString += ' />';
+            formString += `<input type="${tagString.type}"${tagString.id ? ` id="${tagString.id}"` : ''}${tagString.name ? ` name="${tagString.name}"` : ''}/>`;
           } else {
             throw new Error(`Invalid input type: ${tagString.type}`);
           }
